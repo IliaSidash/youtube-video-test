@@ -1,5 +1,6 @@
 import React from 'react';
+import Main from './Main';
 
-const App = () => <div>Initial commit</div>;
+const App = () => <Main />;
 
 export default App;
