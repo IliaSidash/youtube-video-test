@@ -11,7 +11,8 @@
     "react-dom": "^16.4.2",
     "react-flexbox-grid": "^2.0.0",
     "react-scripts": "1.1.4",
-    "styled-components": "^3.4.2"
+    "styled-components": "^3.4.2",
+    "youtube-api-v3-search": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
