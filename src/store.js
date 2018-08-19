@@ -1,5 +1,6 @@
 import { action, observable, decorate, computed } from 'mobx';
-import youtubeSearch from 'youtube-api-v3-search';
+
+import getURL from './youtube-api';
 
 class Store {
   videos = [];
@@ -25,8 +26,8 @@ class Store {
   }
 
   fetchVideos() {
-    this.YOUTUBE_KEY = 'AIzaSyASrk05Yd37CevzN3wTDXZdDoBquZCfuH8';
     this.options = {
+      key: 'AIzaSyASrk05Yd37CevzN3wTDXZdDoBquZCfuH8',
       q: this.searchValue,
       part: 'snippet',
       type: 'video',
@@ -37,18 +38,20 @@ class Store {
     if (this.state !== 'pending') {
       this.state = 'pending';
 
-      youtubeSearch(this.YOUTUBE_KEY, this.options).then((response) => {
-        if (response.error) {
-          this.state = 'error';
-          this.errorText = `${response.error.message}. ${response.error.errors[0].reason}`;
-          console.log(this.errorText, response.error);
-        } else {
-          this.videos = [...this.videos, ...response.items];
-          this.totalResults = response.pageInfo.totalResults;
-          this.nextPageToken = response.nextPageToken;
-          this.state = 'done';
-        }
-      });
+      fetch(getURL(this.options))
+        .then(response => response.json())
+        .then((response) => {
+          if (response.error) {
+            this.state = 'error';
+            this.errorText = `${response.error.message}. ${response.error.errors[0].reason}`;
+            console.log(response.error);
+          } else {
+            this.videos = [...this.videos, ...response.items];
+            this.totalResults = response.pageInfo.totalResults;
+            this.nextPageToken = response.nextPageToken;
+            this.state = 'done';
+          }
+        });
     }
   }
 }
