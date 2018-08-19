@@ -5848,6 +5848,12 @@ react-flexbox-grid@^2.0.0:
     flexboxgrid2 "^7.2.0"
     prop-types "^15.5.8"
 
+react-infinite-scroller@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-infinite-scroller/-/react-infinite-scroller-1.2.0.tgz#ea89906c5bc918dce486880b59e88847518aa538"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-is@^16.3.1:
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.2.tgz#84891b56c2b6d9efdee577cc83501dfc5ecead88"
@@ -7502,3 +7508,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+youtube-api-v3-search@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/youtube-api-v3-search/-/youtube-api-v3-search-1.0.2.tgz#94132fe776bfda913313c5cda8ab446b454f4d24"
